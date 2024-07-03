@@ -1,0 +1,11 @@
+###
+GET http://localhost:8080/authorize?user=&password=
+
+###
+GET http://localhost:8080/authorize?user=Vlad&password=multiPass
+
+###
+GET http://localhost:8080/authorize?user=Ivan&password=suPass
+
+###
+GET http://localhost:8080/authorize?user=Maria&password=anyPass
