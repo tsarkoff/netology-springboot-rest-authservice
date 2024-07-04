@@ -14,16 +14,12 @@ public class AuthorizationService {
     UserRepository userRepository;
 
     public List<Authorities> getAuthorities(User user) {
-        return getAuthorities(user.getUsername(), user.getPassword());
-    }
-
-    public List<Authorities> getAuthorities(String username, String password) {
-        if (isEmpty(username) || isEmpty(password)) {
+        if (isEmpty(user.getUsername()) || isEmpty(user.getPassword())) {
             throw new InvalidCredentials("User name or password is empty");
         }
-        List<Authorities> userAuthorities = userRepository.getUserAuthorities(username, password);
+        List<Authorities> userAuthorities = userRepository.getUserAuthorities(user.getUsername(), user.getPassword());
         if (isEmpty(userAuthorities)) {
-            throw new UnauthorizedUser("Unknown user " + username);
+            throw new UnauthorizedUser("Unknown user " + user.getUsername());
         }
         return userAuthorities;
     }

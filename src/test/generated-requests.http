@@ -1,11 +1,17 @@
-###
-GET http://localhost:8080/authorize?username=&password=
+### 400 BAD_REQUEST empty username and password
+GET http://localhost:8088/authorize?username=&password=
 
-###
-GET http://localhost:8080/authorize?username=Vlad&password=multiPass
+### 400 BAD_REQUEST username and password less than 2 symbols
+GET http://localhost:8088/authorize?username=a&password=b
 
-###
-GET http://localhost:8080/authorize?username=Ivan&password=suPass
+### 400 BAD_REQUEST username more than 32 symbols
+GET http://localhost:8088/authorize?username=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&password=multiPwd
 
-###
-GET http://localhost:8080/authorize?username=Maria&password=anyPass
+### 200 OK existing user Vlad with only RO (READ) permission
+GET http://localhost:8088/authorize?username=Vlad&password=multiPass
+
+### 200 OK existing SU user Ivan with RW and DELETE permissions
+GET http://localhost:8088/authorize?username=Ivan&password=suPass
+
+### 401 UNAUTHORIZED (unknown User) non-existing user Maria
+GET http://localhost:8088/authorize?username=Maria&password=anyPass

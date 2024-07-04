@@ -14,6 +14,5 @@ public class UserRepository {
                 .filter(u -> u.getUsername().equals(username) && u.getPassword().equals(password))
                 .findFirst();
         return lookupUser.isPresent() ? lookupUser.get().getAuthorities() : List.of();
-        //return lookupUser.isPresent() ? List.of(Authorities.READ, Authorities.WRITE, Authorities.DELETE) : List.of();
     }
 }
