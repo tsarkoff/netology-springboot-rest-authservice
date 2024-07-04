@@ -1,8 +1,11 @@
 package ru.netology.authservice.repository;
 
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 import java.util.Optional;
 
+@NoArgsConstructor
 public class UserRepository {
     private static final List<User> users = List.of(
             new User("Vlad", "multiPass", List.of(Authorities.READ)),
