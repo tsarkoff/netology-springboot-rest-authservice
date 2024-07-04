@@ -1,6 +1,7 @@
 package ru.netology.authservice.service;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.netology.authservice.exception.InvalidCredentials;
 import ru.netology.authservice.exception.UnauthorizedUser;
 import ru.netology.authservice.repository.Authorities;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @AllArgsConstructor
 public class AuthorizationService {
-    // @Autowired // w/o : userRepository is NULL
+    @Autowired // w/o : userRepository is NULL
     private final UserRepository userRepository;
 
     public List<Authorities> getAuthorities(User user) {
