@@ -19,7 +19,6 @@ public class ExceptionHandlerAdvice {
     @ExceptionHandler(UnauthorizedUser.class)
     public ResponseEntity<String> unauthorizedUserHandler(UnauthorizedUser e) {
         System.out.println(e.getMessage());
-        e.printStackTrace();
         return new ResponseEntity<>(
                 "UnauthorizedUser Exception in AuthorizationService.getAuthorities() method.\n Exception message: "
                         + e.getMessage(),
