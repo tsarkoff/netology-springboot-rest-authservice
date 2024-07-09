@@ -4,13 +4,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @AllArgsConstructor
 @Data
-@Validated
 public class User {
 
     @NotBlank

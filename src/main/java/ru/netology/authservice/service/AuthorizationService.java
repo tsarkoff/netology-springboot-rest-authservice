@@ -11,7 +11,6 @@ import java.util.List;
 
 @AllArgsConstructor
 public class AuthorizationService {
-    // @Autowired // w/o : userRepository is NULL
     private final UserRepository userRepository;
 
     public List<Authorities> getAuthorities(User user) {
